@@ -7,27 +7,32 @@
   * 想要若干个连续整数的和的形式，则因数必须有基因数。
   * 
   */
-  function sex($number){
+function sex($number){
     $flag = 0;
-    for($m = 1; $m < $number; $m++){
-        for($n = $m + 1; $n < $number; $n++){
-            $sum = ($m + $n) * ($n - $m + 1) / 2;
-            if($sum == $number) {
-                $flag = 1;
-                for($i = $m; $i <= $n; $i++){
-                  echo $i."&nbsp";
-                }
-                echo "<br/>"; 
-            }
-        }
-    }
+    if($number <= 0 || $number >10000){
+      echo "输入值应在1-10000之间";
+    }else{
+      for($m = 1; $m < $number; $m++){
+          for($n = $m + 1; $n < $number; $n++){
+              $sum = ($m + $n) * ($n - $m + 1) / 2;
+              if($sum == $number) {
+                  $flag = 1;
+                  for($i = $m; $i <= $n; $i++){
+                    echo $i."&nbsp";
+                  }
+                  echo "<br/>"; 
+              }
+          }
+      }
 
-    if($flag == 0){
-      echo "NONE";
-    }
 
-  }
+      if($flag == 0){
+        echo "NONE";
+      }
+
+   }
+
+}
 
   echo sex(15);
-
 ?>
